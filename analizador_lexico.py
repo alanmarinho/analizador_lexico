@@ -68,7 +68,7 @@ def proximo_token():
     c = le_caractere()
     valor = ""
 
-    if posicao > +tamanho:
+    if posicao > tamanho:
         return None
 
     while c.isspace():
