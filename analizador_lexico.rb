@@ -1,6 +1,6 @@
-# Analisador lexico para linguagem de expressoes aritmeticas
+# Analisador léxico para linguagem de expressões aritméticas
 
-# Crétitos autor original
+# Créditos autor original
 # Andrei de Araujo Formiga, 2014-07-25
 
 # Modificado por:
@@ -14,7 +14,7 @@
 # | Janiel de Oliveira Silva              |     @Janiel-Oliveira         |
 # | Rubens Lima Duarte                    |     @                        |
 # ------------------------------------------------------------------------
-# Ciencia da Computacao
+# Ciência da Computação
 # IFCE - Campus Tianguá
 
 $codigo = ""
@@ -155,7 +155,7 @@ def imprime_token(tok)
   when $TOK_OP
     puts("Operador\t-- Valor: " + operador_string(tok.valor));
   when $TOK_PONT
-    puts("Pontuacao\t-- Valor: " + (tok.valor == $PARENTESE_ESQUERDA ? "PARESQ" : "PARDIR"));
+    puts("Pontuação\t-- Valor: " + (tok.valor == $PARENTESE_ESQUERDA ? "PARESQ" : "PARDIR"));
   else
     puts("Desconhecido\t -- Valor: " + tok.valor);
   end
