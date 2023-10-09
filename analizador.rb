@@ -90,14 +90,16 @@ def proximo_token(tok)
   c = le_caractere()
   valor = ''
 
+  # ignora espacos em branco
+  while c == ' '
+    c = le_caractere()
+  end
+
   # retorna nil se o fim do codigo foi alcancado
   if $posicao > $tamanho
     return nil
   end
-  # ignora espacos em branco
-  while c == ' ' || c == '\t' || c == '\n'
-    c = le_caractere()
-  end
+  
   # Definir o tipo para numero, e concatenar os digitos de numeros grandes
   if c.match(/\d+/)
     while c.match(/\d+/)
@@ -149,28 +151,30 @@ def imprime_token(tok)
 	
   case tok.tipo
   when $TOK_NUM
-    puts("Numero\t-- Valor: " + tok.valor.to_s);
+    puts("Número\t-- Valor: " + tok.valor.to_s);
   when $TOK_OP
     puts("Operador\t-- Valor: " + operador_string(tok.valor));
   when $TOK_PONT
     puts("Pontuacao\t-- Valor: " + (tok.valor == $PARENTESE_ESQUERDA ? "PARESQ" : "PARDIR"));
   else
-    puts("Tipo de token desconhecido\n");
+    puts("Desconhecido\t -- Valor: " + tok.valor);
   end
 end
 
 def main()
-  puts ("Análise Lexica para Expressoes")
-  puts ("Expressao: ")
+  puts ("Análise Léxica para Expressões")
+  puts ("Expressão: ")
   entrada = gets.chomp
   tok = Token.new(nil, nil)
   
   inicializa_analise(entrada)
 
-  print("\n===== Analise =====\n\n")
+  puts("\n===== Análise =====\n")
   while proximo_token(tok) != nil 
     imprime_token(tok)
   end
 end
 
 main()
+
+# exemplo: (12 + (34 - (56 * 78))) / 2
